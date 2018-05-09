@@ -38,17 +38,17 @@ class TenGreenBottles
   end
 
   def singular_verse
-    "#{@number_of_bottles} green bottles hanging on the wall
-    #{@number_of_bottles} green bottles hanging on the wall
-    And if 1 green bottle should accidentally fall,
-    There'll be #{@number_of_bottles - 1} green bottle hanging on the wall."
+    "#{@number_of_bottles} green bottles hanging on the wall\n" +
+    "#{@number_of_bottles} green bottles hanging on the wall\n" +
+    "And if 1 green bottle should accidentally fall,\n" +
+    "There'll be #{@number_of_bottles - 1} green bottle hanging on the wall."
   end
 
   def final_verse
-    "#{@number_of_bottles} green bottle hanging on the wall
-    #{@number_of_bottles} green bottle hanging on the wall
-    And if 1 green bottle should accidentally fall,
-    There'll be no more bottles hanging on the wall."
+    "#{@number_of_bottles} green bottle hanging on the wall\n" +
+    "#{@number_of_bottles} green bottle hanging on the wall\n" +
+    "And if 1 green bottle should accidentally fall,\n" +
+    "There'll be no more bottles hanging on the wall."
   end
 end
 
