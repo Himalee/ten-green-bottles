@@ -10,4 +10,11 @@ describe Display do
     end
   end
 
+  it "gets 10 bottles from user" do
+    output = StringIO.new
+    input = StringIO.new("10")
+    user_bottles = Display.new(output, input)
+    user_bottles.user_bottles
+    expect(output.string.to_i).to eql(10)
+  end
 end
