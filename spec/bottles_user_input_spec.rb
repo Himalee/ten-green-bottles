@@ -17,4 +17,12 @@ describe Display do
     user_bottles.user_bottles
     expect(output.string.to_i).to eql(10)
   end
+
+  it "gets any number of bottles from user" do
+    output = StringIO.new
+    input = StringIO.new("100")
+    user_bottles = Display.new(output, input)
+    user_bottles.user_bottles
+    expect(output.string.to_i).to eql(100)
+  end
 end

@@ -10,6 +10,7 @@ class Display
   end
 
   def user_bottles
-    @output.puts "10"
+    @bottles = @input.gets.chomp
+    @output.puts "#{@bottles}"
   end
 end
