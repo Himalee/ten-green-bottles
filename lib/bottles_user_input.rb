@@ -5,12 +5,12 @@ class Display
     @input = input
   end
 
-  def bottles_prompt
-    @output.puts "Enter the number of bottles"
+  def bottles_prompt(prompt)
+    @output.puts prompt
   end
 
   def user_bottles
-    @bottles = @input.gets.chomp
-    @output.puts "#{@bottles}"
+    user_bottles = @input.gets.chomp
+    @output.puts "#{user_bottles}"
   end
 end
