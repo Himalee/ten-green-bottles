@@ -1,4 +1,4 @@
-class TenGreenBottles
+class Verses
 
   def verse(number_of_bottles)
     if number_of_bottles >= 3
@@ -32,6 +32,3 @@ class TenGreenBottles
     "There'll be no more bottles hanging on the wall."
   end
 end
-
-# bottles = TenGreenBottles.new(10)
-# bottles.start
