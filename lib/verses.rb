@@ -1,6 +1,6 @@
 class Verses
 
-  def verse(number_of_bottles)
+  def verse_type(number_of_bottles)
     if number_of_bottles >= 3
       regular_verse(number_of_bottles)
     elsif number_of_bottles == 2

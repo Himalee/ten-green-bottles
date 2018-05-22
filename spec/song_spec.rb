@@ -1,30 +1,32 @@
-require "display"
 require "verses"
 require "song"
 
 describe Song do
 
-    it "sings verse once, given one bottle" do
-      display = spy(Display)
-      allow(display).to receive(:user_bottles).and_return(1)
-      verses = spy(Verses)
-      allow(verses).to receive(:verse)
-      song = Song.new(verses, display)
+  it "sings verse once, given one bottle" do
+    verses = spy(Verses)
+    song = Song.new(verses)
+    expect(song.complete_song).to include("1 green bottle", "no more bottles")
+  end
 
-      song.run_song
+  it "loops around with 1 bottle" do
+    verses = spy(Verses)
+    song = Song.new(verses)
+    expect(verses).to receive(:verse_type).once
+    song.create_song(1)
+  end
 
-      expect(verses).to receive(:verse).once
-    end
+  it "loops around with 2 bottles" do
+    verses = spy(Verses)
+    song = Song.new(verses)
+    expect(verses).to receive(:verse_type).twice
+    song.create_song(2)
+  end
 
-    it "sings verse twice, given two bottles" do
-      verses = instance_spy(Verses)
-      allow(verses).to receive(:verse)
-      display = instance_spy(Display)
-      allow(display).to receive(:user_bottles).and_return(2)
-      song = Song.new(verses, display)
-
-      song.run_song
-
-      expect(verses).to receive(:verse).exactly(2).times
-    end
+  it "loops around with 6 bottles" do
+    verses = spy(Verses)
+    song = Song.new(verses)
+    expect(verses).to receive(:verse_type).exactly(6).times
+    song.create_song(6)
+  end
 end
