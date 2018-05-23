@@ -10,6 +10,10 @@ class TenGreenBottles
 
   def run_song
     @display.user_prompt("Enter the number of bottles")
+    compiles_song
+  end
+
+  def compiles_song
     @display.user_bottles
     @display.display_song
   end
