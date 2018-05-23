@@ -7,13 +7,7 @@ describe Song do
     @verses = spy(Verses)
     @song = Song.new(@verses)
   end
-
-  # it "sings verse once, given one bottle" do
-  #   verses = spy(Verses)
-  #   song = Song.new(verses)
-  #   expect(song.create_song(1)).to include("1 green bottle", "no more bottles")
-  # end
-
+  
   it "loops around with 1 bottle" do
     @song.create_song(1)
     expect(@verses).to have_received(:verse_type).once
