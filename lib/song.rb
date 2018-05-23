@@ -7,16 +7,13 @@ class Song
   end
 
   def create_song(number_of_bottles)
-    #verses = []
+    song = []
     until end_of_song?(number_of_bottles) do
-      @verses.verse_type(number_of_bottles)
+      verses = @verses.verse_type(number_of_bottles)
       number_of_bottles -= 1
+      song.push(verses)
     end
-    #verses
-  end
-
-  def complete_song
-
+    song
   end
 
   def end_of_song?(number_of_bottles)

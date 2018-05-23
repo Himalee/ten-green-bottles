@@ -3,30 +3,29 @@ require "song"
 
 describe Song do
 
-  it "sings verse once, given one bottle" do
-    verses = spy(Verses)
-    song = Song.new(verses)
-    expect(song.complete_song).to include("1 green bottle", "no more bottles")
+  before(:each) do
+    @verses = spy(Verses)
+    @song = Song.new(@verses)
   end
 
+  # it "sings verse once, given one bottle" do
+  #   verses = spy(Verses)
+  #   song = Song.new(verses)
+  #   expect(song.create_song(1)).to include("1 green bottle", "no more bottles")
+  # end
+
   it "loops around with 1 bottle" do
-    verses = spy(Verses)
-    song = Song.new(verses)
-    expect(verses).to receive(:verse_type).once
-    song.create_song(1)
+    @song.create_song(1)
+    expect(@verses).to have_received(:verse_type).once
   end
 
   it "loops around with 2 bottles" do
-    verses = spy(Verses)
-    song = Song.new(verses)
-    expect(verses).to receive(:verse_type).twice
-    song.create_song(2)
+    @song.create_song(2)
+    expect(@verses).to have_received(:verse_type).twice
   end
 
   it "loops around with 6 bottles" do
-    verses = spy(Verses)
-    song = Song.new(verses)
-    expect(verses).to receive(:verse_type).exactly(6).times
-    song.create_song(6)
+    @song.create_song(6)
+    expect(@verses).to have_received(:verse_type).exactly(6).times
   end
 end

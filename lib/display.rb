@@ -3,10 +3,10 @@ require_relative "song"
 
 class Display
 
-  def initialize(output = $stdout, input = $stdin, song)
+  def initialize(song, output = $stdout, input = $stdin)
+    @song = song
     @output = output
     @input = input
-    @song = song
   end
 
   def user_prompt(prompt)
@@ -14,20 +14,10 @@ class Display
   end
 
   def user_bottles
-    @input.gets.chomp.to_i
+    @user_bottles = @input.gets.chomp.to_i
   end
 
-  def complete_song
-    number_of_bottles = user_bottles
-    @output.puts @song.create_song(number_of_bottles)
-  end
-
-  def run_song
-    user_prompt("Enter the number of bottles")
-    complete_song
+  def display_song
+    @output.puts @song.create_song(@user_bottles)
   end
 end
-
-# song = Song.new
-# display = Display.new(song)
-# display.run_song
